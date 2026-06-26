@@ -22,7 +22,7 @@ export const SocketProvider = ({ children }) => {
     }
 
     // Connect to server
-    const newSocket = io('http://localhost:5000');
+    const newSocket = io(window.API_URL || 'http://localhost:5000');
     setSocket(newSocket);
 
     // Join role-specific socket room
