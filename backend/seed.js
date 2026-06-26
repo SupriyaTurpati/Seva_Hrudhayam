@@ -1,5 +1,5 @@
 require('dotenv').config();
-const mongoose = require('mongoose');
+const { connectDB } = require('./config/db');
 const Admin = require('./models/Admin');
 const Donor = require('./models/Donor');
 const OrphanageHead = require('./models/OrphanageHead');
@@ -11,8 +11,8 @@ const DonationHistory = require('./models/DonationHistory');
 
 const seedData = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/seva_hrudhayam');
-    console.log('Database connected for seeding...');
+    await connectDB();
+    console.log('Database connected and initialized for seeding...');
 
     // Clear existing data (except admins to preserve admin account)
     await Donor.deleteMany({});

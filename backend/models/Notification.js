@@ -1,30 +1,9 @@
-const mongoose = require('mongoose');
+const { Model } = require('./baseModel');
 
-const notificationSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    refPath: 'userModel'
-  },
-  userModel: {
-    type: String,
-    required: true,
-    enum: ['Admin', 'Donor', 'OrphanageHead']
-  },
-  message: {
-    type: String,
-    required: true
-  },
-  type: {
-    type: String,
-    default: 'info' // 'info', 'alert', 'success', 'warning'
-  },
-  read: {
-    type: Boolean,
-    default: false
+class NotificationModel extends Model {
+  constructor() {
+    super('notifications');
   }
-}, {
-  timestamps: true
-});
+}
 
-module.exports = mongoose.model('Notification', notificationSchema);
+module.exports = new NotificationModel();

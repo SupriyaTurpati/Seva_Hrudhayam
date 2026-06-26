@@ -1,36 +1,12 @@
-const mongoose = require('mongoose');
+const { Model } = require('./baseModel');
 
-const donationHistorySchema = new mongoose.Schema({
-  donationId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    refPath: 'donationModel'
-  },
-  donationModel: {
-    type: String,
-    required: true,
-    enum: ['DonationRequest', 'FutureBooking']
-  },
-  donorId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Donor',
-    required: true
-  },
-  orphanageId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Orphanage',
-    required: true
-  },
-  status: {
-    type: String,
-    required: true
-  },
-  completedAt: {
-    type: Date,
-    default: Date.now
+class DonationHistoryModel extends Model {
+  constructor() {
+    super('donation_histories', {
+      donorId: { table: 'donors', modelName: 'Donor' },
+      orphanageId: { table: 'orphanages', modelName: 'Orphanage' }
+    });
   }
-}, {
-  timestamps: true
-});
+}
 
-module.exports = mongoose.model('DonationHistory', donationHistorySchema);
+module.exports = new DonationHistoryModel();
