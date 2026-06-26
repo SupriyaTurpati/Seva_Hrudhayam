@@ -19,8 +19,8 @@ const Home = () => {
         <div style={{ display: 'inline-flex', padding: '0.4rem 1rem', background: 'rgba(211, 84, 0, 0.08)', borderRadius: '50px', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', fontWeight: '700', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
           <Heart size={14} fill="var(--primary)" /> Connecting Kindness
         </div>
-        <h1 style={{ fontSize: '3.2rem', marginBottom: '1rem' }}>Prevent Food Waste, <br /><span style={{ color: 'var(--primary)' }}>Empower Innocent Lives</span></h1>
-        <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', maxWidth: '750px', margin: '0 auto' }}>
+        <h1 className="hero-title">Prevent Food Waste, <br /><span>Empower Innocent Lives</span></h1>
+        <p className="hero-subtitle">
           Seva Hrudhayam connects weddings, celebrations, and donors directly with nearby orphanages. Don't let excess food or usable essentials go to waste. Report them instantly, and support those in need.
         </p>
         <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
